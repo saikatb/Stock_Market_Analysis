@@ -364,7 +364,23 @@ S0_TWTR # Start Price
     33.060001
 ```
 
-Below script has been used in order to simulate monte carlo simulation with a view to predict the range of the prices.
+Since the share price of Twitter fluctuated the most amongst other stocks hence we can say that the price of Twitter is somewhat volatile. So let us try to predict the future price of Twitter.
+
+In order to predict the price, we will take the help of Monte Carlo Simulation to speculate the mean price over a given period of time and the variance. The word “Stocks” itself is a riddle wrapped up in mystery. The price of Shares is completely unpredictable in every possible sense. When forecasting any event is riddled with uncertainty, future price value cannot be determined specifically, then Monte Carlo Simulation comes handy.
+
+We can derive the present price of stocks on the basis of the past price using the equation:
+
+Price Today = Price Yesterday * er
+
+r is the randomness here.  r is the sum of two parameters: 1) Drift and 2) Volatility.
+
+Drift and volatility both can be calculated using standard deviation, days and iterations.
+
+PT1 = Price of Today, PT0 = Price of Yesterday
+
+PT1 = PT0 * e [Drift+ Volatility]
+
+We can implement the above formula using python while reiterating (1000 iterations) the future price of Twitter for a given period of time (in this case its 30 days).
 
 ```python
 from scipy.stats import norm
