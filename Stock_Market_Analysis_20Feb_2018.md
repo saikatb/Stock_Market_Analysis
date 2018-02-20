@@ -1,5 +1,11 @@
 
 
+# Sneaking a peek at the stock market:
+
+In this project, the price of the stocks had been analyzed using python libraries. The help of EDA or extrapolatory data analysis has been taken in order to visualzie the data and to infer meaning out of them.
+
+Below python libraries have been imported.
+
 ```python
 import numpy as np
 import pandas as pd
@@ -11,7 +17,9 @@ from pandas import Series,DataFrame
 sns.set_style('whitegrid')
 %matplotlib inline
 ```
+**Creating Portfolio:**
 
+The list of technical stocks have been choosen to form a portfolio of all the technical stocks of USA
 
 ```python
 from datetime import datetime
@@ -19,13 +27,17 @@ stocks_tech_list = ['FB','GOOG','TWTR','AAPL','MSFT','IBM','AMZN']
 end = datetime.now()
 start = datetime(end.year-1,end.month,end.day)
 ```
+**Creating DataFrame:**
 
+The Adj Close prices of the stocks in the portfolio have been extracted from yahoo finance using pandas datareader 0.5.0
 
 ```python
 for x in stocks_tech_list:
     globals()[x] = wb.DataReader(x,'yahoo',start,end)
 ```
+**Combined Dataframe:**
 
+A combined dataframe has been created by clubbing the Adj Close pirces of all the stocks in the portfolio
 
 ```python
 combine_close = pd.concat([FB['Adj Close'],GOOG['Adj Close'],TWTR['Adj Close'],AAPL['Adj Close'],MSFT['Adj Close'],IBM['Adj Close'],AMZN['Adj Close']],axis=1)
@@ -33,23 +45,7 @@ combine_close.columns = ['FB_Close','GOOG_Close','TWTR_Close','AAPL_Close','MSFT
 combine_close.head()
 ```
 
-
-
-
 <div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -129,7 +125,7 @@ combine_close.head()
 </div>
 
 
-
+**Plot of Combined DataFrame**
 
 ```python
 combine_close.plot(legend=True,figsize=(10,5))
@@ -138,17 +134,12 @@ plt.ylabel('Price in $ Dollars')
 plt.title( 'Price of all the Stocks')
 ```
 
-
-
-
-    <matplotlib.text.Text at 0x1099cd68>
-
-
-
-
 ![png](output_4_1.png)
 
+**Moving Average**
 
+Moving Averages of 10,20,30,40,50,60,70,80,90 and 100 days have been calculated for all the technical stocks in the portfolio.
+Moving average of Apple stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -162,50 +153,10 @@ plt.title( 'Moving Average Of Apple for 10,20,30,40,50,60,70,80,90,100 days')
 plt.xlabel('Date')
 plt.ylabel('Price in $ Dollars')
 ```
-
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=10,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=20,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=30,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=40,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=50,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=60,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=70,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=80,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=90,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=100,center=False).mean()
-      """
-    
-
-
-
-
-    <matplotlib.text.Text at 0xde02710>
-
-
-
-
 ![png](output_5_2.png)
 
 
+Moving average of Facebook stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -219,50 +170,9 @@ plt.title( 'Moving Average Of Facebook for 10,20,30,40,50,60,70,80,90,100 days')
 plt.xlabel('Date')
 plt.ylabel('Price in $ Dollars')
 ```
-
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=10,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=20,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=30,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=40,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=50,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=60,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=70,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=80,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=90,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=100,center=False).mean()
-      """
-    
-
-
-
-
-    <matplotlib.text.Text at 0xe2c9128>
-
-
-
-
 ![png](output_6_2.png)
 
-
+Moving average of Microsoft stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -276,50 +186,9 @@ plt.title( 'Moving Average Of Microsoft for 10,20,30,40,50,60,70,80,90,100 days'
 plt.xlabel('Date')
 plt.ylabel('Price in $ Dollars')
 ```
-
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=10,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=20,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=30,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=40,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=50,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=60,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=70,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=80,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=90,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=100,center=False).mean()
-      """
-    
-
-
-
-
-    <matplotlib.text.Text at 0xf3e51d0>
-
-
-
-
 ![png](output_7_2.png)
 
-
+Moving average of Google stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -333,50 +202,9 @@ plt.title( 'Moving Average Of Google for 10,20,30,40,50,60,70,80,90,100 days')
 plt.xlabel('Date')
 plt.ylabel('Price in $ Dollars')
 ```
-
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=10,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=20,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=30,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=40,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=50,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=60,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=70,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=80,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=90,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=100,center=False).mean()
-      """
-    
-
-
-
-
-    <matplotlib.text.Text at 0xf3d77f0>
-
-
-
-
 ![png](output_8_2.png)
 
-
+Moving average of Twitter stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -390,50 +218,9 @@ plt.title( 'Moving Average Of Twitter for 10,20,30,40,50,60,70,80,90,100 days')
 plt.xlabel('Date')
 plt.ylabel('Price in $ Dollars')
 ```
-
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=10,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=20,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=30,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=40,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=50,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=60,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=70,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=80,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=90,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=100,center=False).mean()
-      """
-    
-
-
-
-
-    <matplotlib.text.Text at 0xfb92748>
-
-
-
-
 ![png](output_9_2.png)
 
-
+Moving average of Amazon stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -447,50 +234,9 @@ plt.title( 'Moving Average Of Amazon for 10,20,30,40,50,60,70,80,90,100 days')
 plt.xlabel('Date')
 plt.ylabel('Price in $ Dollars')
 ```
-
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=10,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=20,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=30,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=40,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=50,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=60,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=70,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=80,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=90,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=100,center=False).mean()
-      """
-    
-
-
-
-
-    <matplotlib.text.Text at 0xff2a160>
-
-
-
-
 ![png](output_10_2.png)
 
-
+Moving average of IBM stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -504,74 +250,17 @@ plt.title( 'Moving Average Of IBM for 10,20,30,40,50,60,70,80,90,100 days')
 plt.xlabel('Date')
 plt.ylabel('Price in $ Dollars')
 ```
-
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=10,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=20,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=30,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=40,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=50,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=60,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=70,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=80,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=90,center=False).mean()
-      """
-    C:\Users\admin\Anaconda2\lib\site-packages\ipykernel_launcher.py:5: FutureWarning: pd.rolling_mean is deprecated for Series and will be removed in a future version, replace with 
-    	Series.rolling(window=100,center=False).mean()
-      """
-    
-
-
-
-
-    <matplotlib.text.Text at 0x10318e48>
-
-
-
-
-![png](output_11_2.png)
-
-
-
-```python
-(combine_close/combine_close.iloc[0]*100).plot(legend=True,figsize=(10,5))
-#plt.show()
-plt.xlabel('Date')
-plt.ylabel('Normalized Price in $ Dollars')
-plt.title( 'Normalized Price of all the Stocks')
-```
-
-
-
-
-    <matplotlib.text.Text at 0x113b6940>
-
-
-
-
 ![png](output_12_1.png)
 
+The help of Heat map and pair plot have been taken in order to do see how every other stocks are related to each other. Since we are comparing oranges with oranges or apples with apples henceforth we would like to see how they are coorelated to each other.
 
+This comparison has been done in 2 ways.
+
+1) Pair plot and heat map of the Adj Close price
+2) Pair plot and heat map of the combined tech price
 
 ```python
 sns.pairplot(combine_close)
-
 
 corr=combine_close.corr()
 plt.figure(figsize=(10, 7))
@@ -586,10 +275,7 @@ sns.heatmap(corr,
 plt.title('Correlation between Different Stocks Closing Price');
 ```
 
-
 ![png](output_13_0.png)
-
-
 
 ![png](output_13_1.png)
 
@@ -613,14 +299,16 @@ sns.heatmap(corr,
 plt.title('Correlation between Different Stocks Return');
 ```
 
-
 ![png](output_14_0.png)
-
-
 
 ![png](output_14_1.png)
 
+After analyzing both the cases it is found that
 
+1) for the adj close price IBM is negatively correlated with the rest of the stock price
+2) for the return Twitter and IBM has small positive correlation with the rest of the stocks and Twitter and IBM are negtively correlated to each other.
+
+Below is the plot of the normal distribution of several stock prices. From the below graph it can be clearly concluded that stock price of twitter has got more variation in its price as its bell curve is widely spread and it has a small kurtosis.
 
 ```python
 import seaborn as sns
@@ -649,41 +337,26 @@ plt.title("Kernel density estimation of the stock returns")
 
 plt.legend(('FB_Close','GOOG_Close','TWTR_Close','AAPL_Close','MSFT_Close','IBM_Close','AMZN_Close'),loc='best') ;
 ```
-
-
 ![png](output_15_0.png)
 
-
+**Plot of Daily Return of Twitter**
 
 ```python
 log_returns_TWTR = np.log( 1 + TWTR['Adj Close'].pct_change()) 
 log_returns_TWTR.plot(legend=True,figsize=(12,5),linestyle='--',marker='o')
 ```
-
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x14a1e198>
-
-
-
-
 ![png](output_16_1.png)
 
-
+**Monte Carlo Simulation of Twitter Future Stock Price**
 
 ```python
 S0_TWTR = TWTR['Adj Close'].iloc[-1]
 S0_TWTR # Start Price
-```
-
-
-
 
     33.060001
+```
 
-
-
+Below script has been used in order to simulate monte carlo simulation with a view to predict the range of the prices.
 
 ```python
 from scipy.stats import norm
@@ -725,17 +398,7 @@ plt.figtext(0.3,0.75, s="Number of Days :%.0f" %days)
 plt.title( u"Monte Carlo Simulation Analysis of Twitter for %s days" % days, weight='bold')
 ```
 
-
-
-
-    <matplotlib.text.Text at 0x13a1ef28>
-
-
-
-
 ![png](output_18_1.png)
-
-
 
 ```python
 from sklearn.preprocessing import OneHotEncoder
@@ -761,11 +424,5 @@ plt.axvline(x=q, linewidth=4, color='red')
 plt.title(u"Final price distribution for Twitter Share after %s days" % days, weight='bold');
 ```
 
-
 ![png](output_20_0.png)
 
-
-
-```python
-
-```
