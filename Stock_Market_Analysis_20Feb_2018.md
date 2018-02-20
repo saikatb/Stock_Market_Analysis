@@ -318,8 +318,9 @@ plt.title('Correlation between Different Stocks Return');
 
 After analyzing both the cases it is found that
 
-1) for the adj close price IBM is negatively correlated with the rest of the stock price
-2) for the return Twitter and IBM has small positive correlation with the rest of the stocks and Twitter and IBM are negtively correlated to each other.
+1) for the adj close price of the shares, IBM's stock price is negatively correlated with the rest of the stock prices.
+2) for the return of the shares, stock prices of Twitter and IBM have small positive correlation with the rest of the stock prices.
+3) Stock prices of Twitter and IBM are negtively correlated to each other.
 
 Below is the plot of the normal distribution of several stock prices. From the below graph it can be clearly concluded that stock price of twitter has got more variation in its price as its bell curve is widely spread and it has a small kurtosis.
 
