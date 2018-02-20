@@ -250,6 +250,8 @@ plt.title( 'Moving Average Of IBM for 10,20,30,40,50,60,70,80,90,100 days')
 plt.xlabel('Date')
 plt.ylabel('Price in $ Dollars')
 ```
+![png](output_11_2.png)
+
 **Normalization**
 
 Price of the stocks have been normalized and then been plotted to compare the volatility.
