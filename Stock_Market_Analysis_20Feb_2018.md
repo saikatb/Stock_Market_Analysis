@@ -139,6 +139,7 @@ plt.title( 'Price of all the Stocks')
 **Moving Average**
 
 Moving Averages of 10,20,30,40,50,60,70,80,90 and 100 days have been calculated for all the technical stocks in the portfolio.
+
 Moving average of Apple stock price.
 
 ```python
@@ -154,7 +155,6 @@ plt.xlabel('Date')
 plt.ylabel('Price in $ Dollars')
 ```
 ![png](output_5_2.png)
-
 
 Moving average of Facebook stock price.
 
@@ -250,6 +250,10 @@ plt.title( 'Moving Average Of IBM for 10,20,30,40,50,60,70,80,90,100 days')
 plt.xlabel('Date')
 plt.ylabel('Price in $ Dollars')
 ```
+**Normalization**
+
+Price of the stocks have been normalized and then been plotted to compare the volatility.
+
 ![png](output_12_1.png)
 
 The help of Heat map and pair plot have been taken in order to do see how every other stocks are related to each other. Since we are comparing oranges with oranges or apples with apples henceforth we would like to see how they are coorelated to each other.
