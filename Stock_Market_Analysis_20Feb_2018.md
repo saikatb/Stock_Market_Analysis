@@ -371,13 +371,9 @@ In order to predict the price, we will take the help of Monte Carlo Simulation t
 We can derive the present price of stocks on the basis of the past price using the equation:
 
 Price Today = Price Yesterday * er
-
 r is the randomness here.  r is the sum of two parameters: 1) Drift and 2) Volatility.
-
 Drift and volatility both can be calculated using standard deviation, days and iterations.
-
 PT1 = Price of Today, PT0 = Price of Yesterday
-
 PT1 = PT0 * e [Drift+ Volatility]
 
 We can implement the above formula using python while reiterating (1000 iterations) the future price of Twitter for a given period of time (in this case its 30 days).
@@ -430,7 +426,7 @@ runs = 10000
 simulations_TWTR = np.zeros(runs)
 
 for run in xrange(runs):
-    simulations_TWTR = monte_carlo_TWTR(days,iterations,drift,stdev)[days -1]
+   simulations_TWTR = monte_carlo_TWTR(days,iterations,drift,stdev)[days -1]
 ```
 
 
@@ -449,4 +445,6 @@ plt.title(u"Final price distribution for Twitter Share after %s days" % days, we
 ```
 
 ![png](output_20_0.png)
+
+As per the above price distribution, we can say that the mean price of Twitter would hover around 35.74 USD by mid-March 2018. The variance is 7.87 USD which means that 99 percent of the time the maximum amount one can lose on Twitter is 7.87 USD.
 
