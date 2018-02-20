@@ -252,6 +252,11 @@ plt.ylabel('Price in $ Dollars')
 ```
 ![png](output_11_2.png)
 
+Moving Average Ribbon technique has been used to identify the changing trends in the stock prices.
+When the all the moving averages are moving upwards then it signifies an upward trend and when downwards it signifies a downward trend.
+
+The presence of fewer death crosses also tells us that most of the time the trend has been upward but sometimes trend got reversed ( in case of  IBM stock price) too.
+
 **Normalization**
 
 Price of the stocks have been normalized and then been plotted to compare the volatility.
