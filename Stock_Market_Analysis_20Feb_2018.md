@@ -270,6 +270,8 @@ This comparison has been done in 2 ways.
 1) Pair plot and heat map of the Adj Close price
 2) Pair plot and heat map of the combined tech price
 
+**1) Pair plot and heat map of the Adj Close price**
+
 ```python
 sns.pairplot(combine_close)
 
@@ -290,7 +292,7 @@ plt.title('Correlation between Different Stocks Closing Price');
 
 ![png](output_13_1.png)
 
-
+**2) Pair plot and heat map of the combined tech price**
 
 ```python
 combine_tech_returns = combine_close.pct_change().dropna()
