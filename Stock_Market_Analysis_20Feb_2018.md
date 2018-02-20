@@ -355,6 +355,8 @@ log_returns_TWTR.plot(legend=True,figsize=(12,5),linestyle='--',marker='o')
 
 **Monte Carlo Simulation of Twitter Future Stock Price**
 
+Monte carlo simulation is a popular way to estimate the range of the price of any stock price.
+
 ```python
 S0_TWTR = TWTR['Adj Close'].iloc[-1]
 S0_TWTR # Start Price
