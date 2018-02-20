@@ -140,7 +140,7 @@ plt.title( 'Price of all the Stocks')
 
 Moving Averages of 10,20,30,40,50,60,70,80,90 and 100 days have been calculated for all the technical stocks in the portfolio.
 
-Moving average of Apple stock price.
+   1) Moving average of Apple stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -156,7 +156,7 @@ plt.ylabel('Price in $ Dollars')
 ```
 ![png](output_5_2.png)
 
-Moving average of Facebook stock price.
+   2) Moving average of Facebook stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -172,7 +172,7 @@ plt.ylabel('Price in $ Dollars')
 ```
 ![png](output_6_2.png)
 
-Moving average of Microsoft stock price.
+   3) Moving average of Microsoft stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -188,7 +188,7 @@ plt.ylabel('Price in $ Dollars')
 ```
 ![png](output_7_2.png)
 
-Moving average of Google stock price.
+   4) Moving average of Google stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -204,7 +204,7 @@ plt.ylabel('Price in $ Dollars')
 ```
 ![png](output_8_2.png)
 
-Moving average of Twitter stock price.
+   5) Moving average of Twitter stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -220,7 +220,7 @@ plt.ylabel('Price in $ Dollars')
 ```
 ![png](output_9_2.png)
 
-Moving average of Amazon stock price.
+   6) Moving average of Amazon stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
@@ -236,7 +236,7 @@ plt.ylabel('Price in $ Dollars')
 ```
 ![png](output_10_2.png)
 
-Moving average of IBM stock price.
+   7) Moving average of IBM stock price.
 
 ```python
 moving_avg_day = [10,20,30,40,50,60,70,80,90,100]
