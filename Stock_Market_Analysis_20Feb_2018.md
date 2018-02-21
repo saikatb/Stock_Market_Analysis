@@ -422,14 +422,14 @@ In order to predict the price, we will take the help of Monte Carlo Simulation t
 
 We can derive the present price of stocks on the basis of the past price using the equation:
 
-Price Today = Price Yesterday * e^r. 
+**Price Today = Price Yesterday * e^r.**
 
 r is the randomness here. r is the sum of two parameters: **1) Drift and 2) Volatility.**
 Drift and volatility both can be calculated using standard deviation, days and iterations.
     
    **PT1 = Price of Today, PT0 = Price of Yesterday**
    
-   ***PT1 = PT0 * e^[Drift+ Volatility]***
+   **PT1 = PT0 * e^[Drift+ Volatility]**
 
 We can implement the above formula using python while reiterating (1000 iterations) the future price of Twitter for a given period of time (in this case its 30 days).
 
