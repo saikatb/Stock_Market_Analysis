@@ -322,6 +322,45 @@ After analyzing both the cases it is found that
 2) for the return of the shares, stock prices of Twitter and IBM have small positive correlation with the rest of the stock prices.
 3) Stock prices of Twitter and IBM are negtively correlated to each other.
 
+An effort has been made in order to find out which are the days when you had the maximum gain and maximum loss.
+
+**Days of maximum loss.**
+
+```python
+combine_tech_returns.idxmin()
+FB_Close     2018-02-08
+GOOG_Close   2018-02-05
+TWTR_Close   2017-07-27
+AAPL_Close   2018-02-02
+MSFT_Close   2018-02-08
+IBM_Close    2017-04-19
+AMZN_Close   2018-02-08
+dtype: datetime64[ns]
+```
+From the above output it can be infered that 8th Feb 2018 proved to be the worst day for the investor. Further research revealed that on 8th of feb **Top five US tech companies have lost $437 billion in market cap in the sell-off**.
+
+Source : https://www.cnbc.com/2018/02/08/top-five-tech-companies-lost-437-billion-in-market-cap-during-selloff.html
+
+
+**Days of maximum gain.**
+
+```python
+combine_tech_returns.idxmax()
+FB_Close     2017-10-27
+GOOG_Close   2017-10-27
+TWTR_Close   2017-10-26
+AAPL_Close   2017-08-02
+MSFT_Close   2017-10-27
+IBM_Close    2017-10-18
+AMZN_Close   2017-10-27
+dtype: datetime64[ns]
+```
+From the above output it can be infered that 27th October proved to be a lucky day for the investor. Further research revealed that on 27th of October **the big five tech giants added $181 billion in market value on Friday**.
+
+Soruce : https://www.cnbc.com/2017/10/27/amazon-alphabet-microsoft-facebook-apple-added-181b-to-value.html
+
+
+
 Below is the plot of the normal distribution of several stock prices. From the below graph it can be clearly concluded that stock price of twitter has got more variation in its price as its bell curve is widely spread and it has a small kurtosis.
 
 ```python
