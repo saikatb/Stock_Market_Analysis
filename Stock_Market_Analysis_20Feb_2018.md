@@ -328,6 +328,7 @@ An effort has been made in order to find out which are the days when you had the
 
 ```python
 combine_tech_returns.idxmin()
+
 FB_Close     2018-02-08
 GOOG_Close   2018-02-05
 TWTR_Close   2017-07-27
@@ -336,6 +337,7 @@ MSFT_Close   2018-02-08
 IBM_Close    2017-04-19
 AMZN_Close   2018-02-08
 dtype: datetime64[ns]
+
 ```
 From the above output it can be infered that 8th Feb 2018 proved to be the worst day for the investor. Further research revealed that on 8th of feb **Top five US tech companies have lost $437 billion in market cap in the sell-off**.
 
@@ -346,6 +348,7 @@ Source : https://www.cnbc.com/2018/02/08/top-five-tech-companies-lost-437-billio
 
 ```python
 combine_tech_returns.idxmax()
+
 FB_Close     2017-10-27
 GOOG_Close   2017-10-27
 TWTR_Close   2017-10-26
@@ -354,12 +357,14 @@ MSFT_Close   2017-10-27
 IBM_Close    2017-10-18
 AMZN_Close   2017-10-27
 dtype: datetime64[ns]
+
 ```
 From the above output it can be infered that 27th October proved to be a lucky day for the investor. Further research revealed that on 27th of October **the big five tech giants added $181 billion in market value on Friday**.
 
 Soruce : https://www.cnbc.com/2017/10/27/amazon-alphabet-microsoft-facebook-apple-added-181b-to-value.html
 
 
+**Kernel density estimation (KDE) plot of all stocks**
 
 Below is the plot of the normal distribution of several stock prices. From the below graph it can be clearly concluded that stock price of twitter has got more variation in its price as its bell curve is widely spread and it has a small kurtosis.
 
